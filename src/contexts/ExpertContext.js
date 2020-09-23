@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import experts from "../data/experts";
 
-const ExpertContext = createContext(experts);
+const ExpertContext = createContext([]);
 export default ExpertContext;
