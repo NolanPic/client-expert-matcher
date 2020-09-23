@@ -23,9 +23,8 @@ const Unmatched = () => {
       setSelectedClients([
         ...selectedClients.filter(
           (selectedClient) =>
-            // ensure this exact client is removed from selected
-            client.firstName + client.lastName !==
-            selectedClient.firstName + selectedClient.lastName
+            // ensure this client is filtered out of selected
+            client.id !== selectedClient.id
         ),
       ]);
     }

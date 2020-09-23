@@ -8,7 +8,7 @@ const ExpertsList = ({
   return experts.length ? (
     <ul className="experts-list">
       {experts.map((expert) => (
-        <li key={expert.firstName}>
+        <li key={expert.id}>
           <span>
             {expert.firstName} {expert.lastName}
           </span>
