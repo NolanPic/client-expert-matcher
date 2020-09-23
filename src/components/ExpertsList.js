@@ -3,13 +3,15 @@ import React from "react";
 const ExpertsList = ({
   experts,
   assignClientsToExpert,
-  selectedClientCount,
+  selectedClientCount, // if there are 0 clients selected, disable the Assign btn
 }) => {
   return experts.length ? (
     <ul className="experts-list">
       {experts.map((expert) => (
         <li key={expert.firstName}>
-          <span>expert.firstName + expert.lastName</span>
+          <span>
+            {expert.firstName} {expert.lastName}
+          </span>
           <button
             disabled={selectedClientCount === 0}
             onClick={(e) => assignClientsToExpert(e)}

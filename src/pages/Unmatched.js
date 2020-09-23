@@ -1,10 +1,15 @@
 import React, { useContext, useState } from "react";
-import UnmatchedClientList from "../components/UnmatchedClientsList";
 import ClientContext from "../contexts/ClientContext";
+import ExpertContext from "../contexts/ExpertContext";
+import UnmatchedClientList from "../components/UnmatchedClientsList";
+import ExpertsList from "../components/ExpertsList";
 
 const Unmatched = () => {
   // get the unmatched clients from the client context
   const [unmatchedClients, setUnmatchedClients] = useContext(ClientContext);
+
+  // get the experts from the expert context
+  const experts = useContext(ExpertContext);
 
   // keep a list of all the clients that are selected
   const [selectedClients, setSelectedClients] = useState([]);
@@ -26,11 +31,20 @@ const Unmatched = () => {
     }
   };
 
+  const assignClientsToExpert = (expert) => {
+    console.log(expert);
+  };
+
   return (
     <div>
       <UnmatchedClientList
         clients={unmatchedClients}
         onClientSelected={onClientSelected}
+      />
+      <ExpertsList
+        experts={experts}
+        assignClientsToExpert={assignClientsToExpert}
+        selectedClientCount={selectedClients.length}
       />
     </div>
   );
