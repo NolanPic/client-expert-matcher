@@ -1,6 +1,6 @@
 import React from "react";
 
-const UnmatchedClientsList = ({ clients }) => {
+const UnmatchedClientsList = ({ clients, onClientSelected }) => {
   return clients.length ? (
     <ul className="unmatched-clients">
       {/* normally I would never have firstName as a key--the key
@@ -10,7 +10,10 @@ const UnmatchedClientsList = ({ clients }) => {
           <span>
             {client.firstName} {client.lastName}
           </span>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onChange={(e) => onClientSelected(e.target.checked, client)}
+          />
         </li>
       ))}
     </ul>
