@@ -2,7 +2,7 @@ import React from "react";
 
 const UnmatchedClientsList = ({ clients, onClientSelected }) => {
   return clients.length ? (
-    <ul className="unmatched-clients">
+    <ul className="unmatched-clients-list">
       {/* normally I would never have firstName as a key--the key
             should always be a unique ID */}
       {clients.map((client) => (
