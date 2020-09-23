@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import UnmatchedClientList from "../components/UnmatchedClientsList";
+import ClientContext from "../contexts/ClientContext";
 
 const Unmatched = () => {
-  return <div>Unmatched</div>;
+  // get the unmatched clients from the client context
+  const [unmatchedClients, setUnmatchedClients] = useContext(ClientContext);
+
+  return (
+    <div>
+      <UnmatchedClientList clients={unmatchedClients} />
+    </div>
+  );
 };
 
 export default Unmatched;
