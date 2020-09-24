@@ -15,7 +15,9 @@ const UnmatchedClientsList = ({ clients, onClientSelected }) => {
         </li>
       ))}
     </ul>
-  ) : null;
+  ) : (
+    <p>All clients have been assigned!</p>
+  );
 };
 
 export default UnmatchedClientsList;
