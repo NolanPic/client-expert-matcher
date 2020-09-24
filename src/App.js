@@ -14,8 +14,14 @@ function App() {
   // set up state to pass to providers
   const [unmatchedClients, setUnmatchedClients] = useState(clients);
 
-  // initially, no one is matched
-  const [matched, setMatched] = useState([]);
+  // initially, matched will be a list of experts
+  // with no assigned clients
+  const [matched, setMatched] = useState(
+    experts.map((expert) => ({
+      ...expert,
+      assignedClients: [],
+    }))
+  );
 
   // experts do not need a set state, because they do not change
 

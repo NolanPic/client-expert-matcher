@@ -6,10 +6,20 @@ const Matched = () => {
 
   return matches.length ? (
     <ul className="match-list">
-      {matches.map((match) => (
-        <li key={match.client.id}>
-          {match.client.firstName + " " + match.client.lastName} is matched with{" "}
-          {match.expert.firstName + " " + match.expert.lastName}
+      {matches.map((expert) => (
+        <li key={expert.id}>
+          {expert.firstName} {expert.lastName}:
+          {expert.assignedClients.length ? (
+            <ul>
+              {expert.assignedClients.map((client) => (
+                <li key={client.id}>
+                  {client.firstName} {client.lastName}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No clients assigned</p>
+          )}
         </li>
       ))}
     </ul>
