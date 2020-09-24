@@ -13,3 +13,57 @@ html {
 body {
   font-size: 2rem;
 }
+
+.App {
+  width: 600px;
+  margin: 10rem auto;
+}
+
+nav {
+  display: inline-block;
+  background-color: #2aa5b7;
+  padding: 1.7rem;
+  a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
+
+button {
+  background-color: #321585;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 300px;
+}
+
+.unmatched-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .unmatched-clients-list {
+    li {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+
+      input[type="checkbox"] {
+        transform: scale(2);
+      }
+    }
+  }
+
+  .experts-list {
+    li {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+    }
+  }
+}

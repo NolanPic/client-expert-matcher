@@ -28,14 +28,18 @@ function App() {
       <ClientContext.Provider value={[unmatchedClients, setUnmatchedClients]}>
         <MatchContext.Provider value={[matched, setMatched]}>
           <div className="App">
-            <NavLink to="/">Unmatched</NavLink>
-            <NavLink to="matched">Matched</NavLink>
+            <nav>
+              <NavLink exact to="/">
+                Unmatched
+              </NavLink>
+              <NavLink to="matched">Matched</NavLink>
+            </nav>
             <div className="container">
               <Switch>
                 <Route path="/matched">
                   <Matched />
                 </Route>
-                <Route path="/">
+                <Route exact path="/">
                   <Unmatched />
                 </Route>
               </Switch>

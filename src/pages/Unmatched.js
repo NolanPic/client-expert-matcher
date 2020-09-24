@@ -65,16 +65,22 @@ const Unmatched = () => {
   };
 
   return (
-    <div>
-      <UnmatchedClientList
-        clients={unmatchedClients}
-        onClientSelected={onClientSelected}
-      />
-      <ExpertsList
-        experts={experts}
-        assignClientsToExpert={assignClientsToExpert}
-        selectedClientCount={selectedClients.length}
-      />
+    <div className="unmatched-page">
+      <div>
+        <h2>Unmatched clients</h2>
+        <UnmatchedClientList
+          clients={unmatchedClients}
+          onClientSelected={onClientSelected}
+        />
+      </div>
+      <div>
+        <h2>Experts</h2>
+        <ExpertsList
+          experts={experts}
+          assignClientsToExpert={assignClientsToExpert}
+          selectedClientCount={selectedClients.length}
+        />
+      </div>
     </div>
   );
 };
