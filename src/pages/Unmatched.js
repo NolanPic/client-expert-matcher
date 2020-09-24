@@ -40,6 +40,20 @@ const Unmatched = () => {
     selectedClients.forEach((client) => {
       setMatches([...matches, { client, expert }]);
     });
+
+    // remove the newly matched clients from unmatched
+    setUnmatchedClients(
+      unmatchedClients.filter((unmatched) => {
+        // find the client and remove them
+        const found = selectedClients.find((c) => c.id === unmatched.id);
+
+        // if they were found, filter them out--otherwise keep them in
+        return found ? false : true;
+      })
+    );
+
+    // reset selected clients state
+    setSelectedClients([]);
   };
 
   return (
