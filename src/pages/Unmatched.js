@@ -6,18 +6,14 @@ import UnmatchedClientList from "../components/UnmatchedClientsList";
 import ExpertsList from "../components/ExpertsList";
 
 const Unmatched = () => {
-  // get the unmatched clients from the client context
   const [unmatchedClients, setUnmatchedClients] = useContext(ClientContext);
-
-  // get the experts from the expert context
   const experts = useContext(ExpertContext);
-
-  // get the matches from the matches context
   const [matches, setMatches] = useContext(MatchContext);
 
   // keep a list of all the clients that are selected
   const [selectedClients, setSelectedClients] = useState([]);
 
+  // updates the selected state when a client is selected
   const onClientSelected = (selected, client) => {
     if (selected) {
       // if the client was selected, add to state
@@ -38,11 +34,10 @@ const Unmatched = () => {
   const assignClientsToExpert = (expert) => {
     // set a match record for each client
 
-    // matches is a list of lists:
-    // [ expert: [client, client], expert: [client]]
-
+    // create a new object for this expert to avoid mutation
     const newExpert = matches.find((m) => m.id === expert.id);
 
+    // add the selected clients to this expert's assignments
     selectedClients.forEach((client) => {
       newExpert.assignedClients.push(client);
     });
@@ -65,16 +60,22 @@ const Unmatched = () => {
   };
 
   return (
-    <div>
-      <UnmatchedClientList
-        clients={unmatchedClients}
-        onClientSelected={onClientSelected}
-      />
-      <ExpertsList
-        experts={experts}
-        assignClientsToExpert={assignClientsToExpert}
-        selectedClientCount={selectedClients.length}
-      />
+    <div className="unmatched-page">
+      <div>
+        <h2>Unmatched Clients</h2>
+        <UnmatchedClientList
+          clients={unmatchedClients}
+          onClientSelected={onClientSelected}
+        />
+      </div>
+      <div>
+        <h2>Experts</h2>
+        <ExpertsList
+          experts={experts}
+          assignClientsToExpert={assignClientsToExpert}
+          selectedClientCount={selectedClients.length}
+        />
+      </div>
     </div>
   );
 };

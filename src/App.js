@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import clients from "./data/clients";
 import experts from "./data/experts";
 import { NavLink, Switch, Route } from "react-router-dom";
@@ -15,7 +13,9 @@ function App() {
   const [unmatchedClients, setUnmatchedClients] = useState(clients);
 
   // initially, matched will be a list of experts
-  // with no assigned clients
+  // with no assigned clients.
+  // It will eventually look like:
+  // [ expert: [client, client], expert: [client]]
   const [matched, setMatched] = useState(
     experts.map((expert) => ({
       ...expert,
@@ -23,21 +23,24 @@ function App() {
     }))
   );
 
-  // experts do not need a set state, because they do not change
-
   return (
+    // experts do not need a set state, because they do not change
     <ExpertContext.Provider value={experts}>
       <ClientContext.Provider value={[unmatchedClients, setUnmatchedClients]}>
         <MatchContext.Provider value={[matched, setMatched]}>
           <div className="App">
-            <NavLink to="/">Unmatched</NavLink>
-            <NavLink to="matched">Matched</NavLink>
+            <nav>
+              <NavLink exact to="/">
+                Unmatched
+              </NavLink>
+              <NavLink to="matched">Matched</NavLink>
+            </nav>
             <div className="container">
               <Switch>
                 <Route path="/matched">
                   <Matched />
                 </Route>
-                <Route path="/">
+                <Route exact path="/">
                   <Unmatched />
                 </Route>
               </Switch>

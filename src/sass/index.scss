@@ -1,0 +1,92 @@
+@import "./normalize.scss";
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 2rem;
+  color: #36178c;
+}
+
+.App {
+  width: 600px;
+  margin: 10rem auto;
+}
+
+nav {
+  display: inline-block;
+  background-color: #2aa5b7;
+  padding: 1.7rem;
+  a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+  background-color: #321585;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 300px;
+}
+
+.unmatched-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .unmatched-clients-list {
+    li {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+
+      input[type="checkbox"] {
+        transform: scale(2);
+      }
+    }
+  }
+
+  .experts-list {
+    li {
+      width: 200px;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.match-list {
+  ul {
+    list-style: none;
+  }
+
+  span {
+    font-size: 2.5rem;
+  }
+
+  .assigned-list {
+    background-color: #c2e5ee;
+    list-style-position: inside;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    li {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
