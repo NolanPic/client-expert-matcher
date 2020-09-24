@@ -13,7 +13,9 @@ function App() {
   const [unmatchedClients, setUnmatchedClients] = useState(clients);
 
   // initially, matched will be a list of experts
-  // with no assigned clients
+  // with no assigned clients.
+  // It will eventually look like:
+  // [ expert: [client, client], expert: [client]]
   const [matched, setMatched] = useState(
     experts.map((expert) => ({
       ...expert,

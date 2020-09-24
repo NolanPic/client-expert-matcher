@@ -34,11 +34,10 @@ const Unmatched = () => {
   const assignClientsToExpert = (expert) => {
     // set a match record for each client
 
-    // matches is a list of lists:
-    // [ expert: [client, client], expert: [client]]
-
+    // create a new object for this expert to avoid mutation
     const newExpert = matches.find((m) => m.id === expert.id);
 
+    // add the selected clients to this expert's assignments
     selectedClients.forEach((client) => {
       newExpert.assignedClients.push(client);
     });
