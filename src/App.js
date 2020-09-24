@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import clients from "./data/clients";
 import experts from "./data/experts";
 import { NavLink, Switch, Route } from "react-router-dom";
