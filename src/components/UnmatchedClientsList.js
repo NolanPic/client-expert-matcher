@@ -5,7 +5,7 @@ const UnmatchedClientsList = ({ clients, onClientSelected }) => {
     <ul className="unmatched-clients-list">
       {clients.map((client) => (
         <li key={client.id}>
-          <label for={`client${client.id}`}>
+          <label htmlFor={`client${client.id}`}>
             {client.firstName} {client.lastName}
           </label>
           <input
