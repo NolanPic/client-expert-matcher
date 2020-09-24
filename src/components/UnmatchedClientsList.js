@@ -5,10 +5,11 @@ const UnmatchedClientsList = ({ clients, onClientSelected }) => {
     <ul className="unmatched-clients-list">
       {clients.map((client) => (
         <li key={client.id}>
-          <span>
+          <label for={`client${client.id}`}>
             {client.firstName} {client.lastName}
-          </span>
+          </label>
           <input
+            id={`client${client.id}`}
             type="checkbox"
             onChange={(e) => onClientSelected(e.target.checked, client)}
           />
