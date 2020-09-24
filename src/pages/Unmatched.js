@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import ClientContext from "../contexts/ClientContext";
 import ExpertContext from "../contexts/ExpertContext";
+import MatchContext from "../contexts/MatchContext";
 import UnmatchedClientList from "../components/UnmatchedClientsList";
 import ExpertsList from "../components/ExpertsList";
 
@@ -10,6 +11,9 @@ const Unmatched = () => {
 
   // get the experts from the expert context
   const experts = useContext(ExpertContext);
+
+  // get the matches from the matches context
+  const [matches, setMatches] = useContext(MatchContext);
 
   // keep a list of all the clients that are selected
   const [selectedClients, setSelectedClients] = useState([]);
@@ -30,8 +34,12 @@ const Unmatched = () => {
     }
   };
 
+  // assigns all of the selected clients to the expert provided
   const assignClientsToExpert = (expert) => {
-    console.log(expert);
+    // set a match record for each client
+    selectedClients.forEach((client) => {
+      setMatches([...matches, { client, expert }]);
+    });
   };
 
   return (

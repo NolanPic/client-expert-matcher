@@ -5,6 +5,11 @@ const ExpertsList = ({
   assignClientsToExpert,
   selectedClientCount, // if there are 0 clients selected, disable the Assign btn
 }) => {
+  const onAssign = (e, expert) => {
+    e.preventDefault();
+    assignClientsToExpert(expert);
+  };
+
   return experts.length ? (
     <ul className="experts-list">
       {experts.map((expert) => (
@@ -14,7 +19,7 @@ const ExpertsList = ({
           </span>
           <button
             disabled={selectedClientCount === 0}
-            onClick={(e) => assignClientsToExpert(e)}
+            onClick={(e) => onAssign(e, expert)}
           >
             Assign
           </button>
