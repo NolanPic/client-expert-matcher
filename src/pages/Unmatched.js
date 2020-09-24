@@ -6,18 +6,14 @@ import UnmatchedClientList from "../components/UnmatchedClientsList";
 import ExpertsList from "../components/ExpertsList";
 
 const Unmatched = () => {
-  // get the unmatched clients from the client context
   const [unmatchedClients, setUnmatchedClients] = useContext(ClientContext);
-
-  // get the experts from the expert context
   const experts = useContext(ExpertContext);
-
-  // get the matches from the matches context
   const [matches, setMatches] = useContext(MatchContext);
 
   // keep a list of all the clients that are selected
   const [selectedClients, setSelectedClients] = useState([]);
 
+  // updates the selected state when a client is selected
   const onClientSelected = (selected, client) => {
     if (selected) {
       // if the client was selected, add to state
