@@ -67,7 +67,7 @@ const Unmatched = () => {
   return (
     <div className="unmatched-page">
       <div>
-        <h2>Unmatched clients</h2>
+        <h2>Unmatched Clients</h2>
         <UnmatchedClientList
           clients={unmatchedClients}
           onClientSelected={onClientSelected}

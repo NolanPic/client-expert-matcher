@@ -12,6 +12,7 @@ html {
 
 body {
   font-size: 2rem;
+  color: #36178c;
 }
 
 .App {
@@ -35,6 +36,7 @@ nav {
 }
 
 button {
+  cursor: pointer;
   background-color: #321585;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -64,6 +66,27 @@ button {
       display: flex;
       justify-content: space-between;
       padding-bottom: 1rem;
+    }
+  }
+}
+
+.match-list {
+  ul {
+    list-style: none;
+  }
+
+  span {
+    font-size: 2.5rem;
+  }
+
+  .assigned-list {
+    background-color: #c2e5ee;
+    list-style-position: inside;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    li {
+      padding-bottom: 0.5rem;
     }
   }
 }
