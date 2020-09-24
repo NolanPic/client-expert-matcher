@@ -41,6 +41,11 @@ button {
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 300px;
+
+  &[disabled] {
+    background-color: #b0a4d1;
+    cursor: initial;
+  }
 }
 
 .unmatched-page {
