@@ -49,8 +49,6 @@ const Unmatched = () => {
     // update this expert's record
     setMatches([newExpert, ...matches.filter((m) => m.id !== expert.id)]);
 
-    console.log(matches);
-
     // remove the newly matched clients from unmatched
     setUnmatchedClients(
       unmatchedClients.filter((unmatched) => {
