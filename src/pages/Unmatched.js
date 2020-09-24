@@ -37,9 +37,12 @@ const Unmatched = () => {
   // assigns all of the selected clients to the expert provided
   const assignClientsToExpert = (expert) => {
     // set a match record for each client
+
+    const newMatches = [...matches];
     selectedClients.forEach((client) => {
-      setMatches([...matches, { client, expert }]);
+      newMatches.push({ client, expert });
     });
+    setMatches(newMatches);
 
     // remove the newly matched clients from unmatched
     setUnmatchedClients(
